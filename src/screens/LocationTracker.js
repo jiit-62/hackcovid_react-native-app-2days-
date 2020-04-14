@@ -18,7 +18,7 @@ class Try extends React.Component {
     }
   }
   async componentDidMount() {
-    this.socket = io("http://c3ac6896.ngrok.io/");
+    this.socket = io("http://900e825d.ngrok.io");
     this.socket.on('connect', () => console.log("connected"))
     this.socket.on("position", mssg => {
       if (mssg.phoneno) {
@@ -166,7 +166,8 @@ class Try extends React.Component {
           value={this.state.allowsGPS}
           onValueChange={this.toggleGPS}
         />
-        <Text style={{ margin: 10, fontWeight: "bold" }}>{"There are " + this.getNeighbourUsers.length + " users near you"}</Text>
+        <Text style={{ margin: 10, fontWeight: "bold" }}>{"There are " + this.getNeighbourUsers().length + " users near you"}</Text>
+        <Text>http://900e825d.ngrok.io</Text>
       </View>
     )
   }
