@@ -3,6 +3,7 @@ import { Button, PermissionsAndroid, Platform, TextInput, Text, View, Switch } f
 import io from 'socket.io-client'
 import Geolocation from 'react-native-geolocation-service'
 import MapView, { Marker } from 'react-native-maps'
+import FlashMessage, { showMessage, hideMessage } from 'react-native-flash-message'
 
 class Try extends React.Component {
   constructor(props) {
@@ -167,7 +168,17 @@ class Try extends React.Component {
           onValueChange={this.toggleGPS}
         />
         <Text style={{ margin: 10, fontWeight: "bold" }}>{"There are " + this.getNeighbourUsers().length + " users near you"}</Text>
-        <Text>http://900e825d.ngrok.io</Text>
+        <Button title="show flash message" onPress={() => {
+          console.log("pressed")
+          showMessage({
+            message: "ALERT PLEASE!!!",
+            type: "danger",
+            position: 'bottom',
+            autoHide: false,
+            description: "Your are found near to covid victim. Be alert and safe",
+            icon: { icon: "auto", position: 'left' }
+          })
+        }} />
       </View>
     )
   }

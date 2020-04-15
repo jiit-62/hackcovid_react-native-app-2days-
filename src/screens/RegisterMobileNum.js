@@ -51,9 +51,10 @@ class RegisterMobileNum extends React.Component {
         <View style={styles.spacing}>
           <Button
             title="Local Notification (now)"
-            onPress={() => { this.notif.localNotif() }}
+            onPress={() => { this.notif.localNotif("location-tracker-app", "Alert Message", "Your location is close to covid infected person. BE ALERT!!!") }}
           />
         </View>
+
       </>
     )
   }
